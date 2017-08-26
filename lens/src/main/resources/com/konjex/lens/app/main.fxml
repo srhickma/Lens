@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane onKeyPressed="#globalKeyPressed" prefHeight="550.0" prefWidth="800.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.konjex.lens.app.sample.Controller">
+<BorderPane onKeyPressed="#globalKeyPressed" prefHeight="550.0" prefWidth="800.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.konjex.lens.app.controllers.Controller">
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <top>

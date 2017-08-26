@@ -18,6 +18,7 @@ dependencies {
     compile ':annotations'
     compile ':guava:14.0.1'
     compile ':pty4j:0.7.2'
+    compile ':reactfx:1.4.1'
 
     testCompile ':junit:4.10'
 }

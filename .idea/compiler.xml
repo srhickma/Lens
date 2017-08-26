@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="lens-lens_main" target="1.8" />
+      <module name="lens-lens_test" target="1.8" />
+      <module name="terminal_main" target="1.8" />
+      <module name="terminal_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

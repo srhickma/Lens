@@ -2,7 +2,6 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 repositories {
-    mavenCentral()
     flatDir dirs: ['../lib']
 }
 
@@ -29,9 +28,9 @@ dependencies {
     compile ':guava:14.0.1'
     compile ':pty4j:0.7.2'
     compile ':jna'
-    compile ":jna-platform"
+    compile ':jna-platform'
     compile ':purejavacomm:0.0.17'
-    compile 'org.reactfx:reactfx:1.4.1'
+    compile ':reactfx:1.4.1'
 
     testCompile ':junit:4.10'
 }

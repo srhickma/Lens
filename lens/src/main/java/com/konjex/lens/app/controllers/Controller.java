@@ -1,4 +1,4 @@
-package com.konjex.lens.app.sample;
+package com.konjex.lens.app.controllers;
 
 import com.konjex.lens.commands.CommandRunner;
 import com.konjex.lens.cores.terminal.LensTerminal;
@@ -11,14 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.apache.log4j.Logger;
-import org.reactfx.EventStreams;
 
 import javax.swing.SwingUtilities;
 import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {

@@ -8,10 +8,6 @@ import javafx.stage.Stage;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class LensApplication extends Application {
 
     private static final Logger log = Logger.getLogger(LensApplication.class);
@@ -19,7 +15,7 @@ public class LensApplication extends Application {
     @Override
     public void start(Stage stage) throws Exception{
         log.info("Launching lens application" + getClass().getPackage().toString());
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         Scene scene = new Scene(root);
 
         stage.setScene(scene);

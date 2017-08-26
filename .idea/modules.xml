@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lens.iml" filepath="$PROJECT_DIR$/lens.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lens/lens-lens.iml" filepath="$PROJECT_DIR$/.idea/modules/lens/lens-lens.iml" group="lens" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lens/lens-lens_main.iml" filepath="$PROJECT_DIR$/.idea/modules/lens/lens-lens_main.iml" group="lens" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/lens/lens-lens_test.iml" filepath="$PROJECT_DIR$/.idea/modules/lens/lens-lens_test.iml" group="lens" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/terminal/terminal.iml" filepath="$PROJECT_DIR$/.idea/modules/terminal/terminal.iml" group="terminal" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/terminal/terminal_main.iml" filepath="$PROJECT_DIR$/.idea/modules/terminal/terminal_main.iml" group="terminal" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/terminal/terminal_test.iml" filepath="$PROJECT_DIR$/.idea/modules/terminal/terminal_test.iml" group="terminal" />
+    </modules>
+  </component>
+</project>

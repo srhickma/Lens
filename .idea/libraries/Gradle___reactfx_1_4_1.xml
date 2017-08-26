@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: :reactfx:1.4.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/reactfx-1.4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
