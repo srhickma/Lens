@@ -1,0 +1,50 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+    flatDir dirs: ['../lib']
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main/java'
+            srcDir '../terminal/src'
+        }
+        resources{
+            srcDir 'src/main/resources'
+        }
+    }
+    test {
+        java{
+            srcDir 'src/test/java'
+        }
+    }
+}
+
+dependencies {
+    compile ':log4j:1.2.14'
+    compile ':annotations'
+    compile ':guava:14.0.1'
+    compile ':pty4j:0.7.2'
+    compile ':jna'
+    compile ":jna-platform"
+    compile ':purejavacomm:0.0.17'
+    compile 'org.reactfx:reactfx:1.4.1'
+
+    testCompile ':junit:4.10'
+}
+
+mainClassName = 'com.konjex.lens.app.LensApplication'
+
+
+jar {
+    baseName "lens"
+
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+

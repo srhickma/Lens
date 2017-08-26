@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+repositories {
+    flatDir dirs: ['../lib']
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+            srcDir '../lens/src/main/java'
+        }
+    }
+}
+
+dependencies {
+    compile ':log4j:1.2.14'
+    compile ':annotations'
+    compile ':guava:14.0.1'
+    compile ':pty4j:0.7.2'
+
+    testCompile ':junit:4.10'
+}
+
+test {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}

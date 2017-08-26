@@ -1,0 +1,1 @@
+./gradlew :lens:run

@@ -1,0 +1,14 @@
+allprojects {
+    version = "0.1.0"
+
+    buildDir = new File(rootProject.projectDir, ".gradleBuild/" + project.name)
+}
+
+subprojects {
+    repositories {
+        flatDir dirs: ['../lib', 'libs']
+    }
+}
+
+
+

@@ -1,0 +1,51 @@
+.tab-pane{
+    -fx-background-color: rgb(24, 24, 24);
+    -fx-border-color: rgb(14, 14, 14);
+}
+.tab-pane *.tab-header-background{
+    -fx-background-color: rgb(14, 14, 14);
+}
+.tab-pane:focused > .tab-header-area > .headers-region > .tab:selected .focus-indicator {-fx-border-style: none}
+
+.tab{
+    -fx-background-color: rgb(14, 14, 14);
+    -fx-border-color: rgb(14, 14, 14);
+    -fx-background-radius: 0;
+    -fx-border-style: solid;
+
+}
+.tab:selected{
+    -fx-background-color: rgb(24, 24, 24);
+    -fx-border-color: rgb(24, 24, 24);
+}
+.tab:selected .tab-label{
+    -fx-text-fill: #3090C7;
+}
+
+.button{
+    -fx-background-color: rgb(35, 35, 35);
+    -fx-background-radius: 20;
+    -fx-background-insets: 0;
+    -fx-min-width: 16px;
+    -fx-min-height: 16px;
+    -fx-max-width: 16px;
+    -fx-max-height: 16px;
+    -fx-padding: 0, 4px, 0, 0;
+}
+.button:hover{
+    -fx-background-color: #3090C7;
+}
+
+.text-field{
+    -fx-background-color: rgb(14, 14, 14);
+    -fx-background-radius: 0;
+    -fx-max-height: 20px;
+    -fx-border-style: none;
+    -fx-text-fill: white;
+    -fx-font-family: monospace;
+}
+
+.progress-bar{
+    -fx-pref-width: 100px;
+    -fx-background-insets: 0;
+}
