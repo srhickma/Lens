@@ -1,12 +1,14 @@
 package com.konjex.lens.commands;
 
 
+import com.konjex.lens.commands.exceptions.CommandNotFoundException;
+import com.konjex.lens.commands.exceptions.InvalidCommandNameException;
 import com.konjex.util.DoublyLinkedList;
 import com.konjex.util.LinkedListNode;
 import org.apache.log4j.Logger;
 
 /**
- * Created by shane on 23/08/17.
+ * Class for running lens commands.
  */
 public class CommandRunner {
 
@@ -22,11 +24,20 @@ public class CommandRunner {
     }
 
     public void run(String inputText){
-        log.info("Parsing command from: " + inputText);
-        history.getFirst().setValue(inputText);
-        history.addFirst("");
-        if(history.size() > MAX_HISTORY_SIZE){
-            history.removeLast();
+        try{
+            String commandName = CommandSanitizer.sanitize(inputText);
+            Command command = CommandProvider.get(commandName);
+            log.info("Executing command " + command.getName());
+            command.run();
+
+            history.getFirst().setValue(inputText);
+            history.addFirst("");
+            if(history.size() > MAX_HISTORY_SIZE){
+                history.removeLast();
+            }
+        }
+        catch(InvalidCommandNameException | CommandNotFoundException e){
+            log.error(e);
         }
     }
 
@@ -48,6 +59,5 @@ public class CommandRunner {
         }
         return currentCommand.getValue();
     }
-
 
 }
