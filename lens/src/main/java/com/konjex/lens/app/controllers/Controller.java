@@ -1,15 +1,21 @@
 package com.konjex.lens.app.controllers;
 
-import com.konjex.lens.commands.CommandRunner;
+import com.konjex.lens.app.events.LensEventManager;
+import com.konjex.lens.app.events.ProcessCreatedEvent;
+import com.konjex.lens.commands.LensCommandRunner;
 import com.konjex.lens.cores.terminal.LensTerminal;
 import com.konjex.lens.ui.DateTimeProvider;
 import javafx.embed.swing.SwingNode;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToolBar;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
 import org.apache.log4j.Logger;
 
 import javax.swing.SwingUtilities;
@@ -20,7 +26,10 @@ public class Controller implements Initializable {
 
     private static final Logger log = Logger.getLogger(Controller.class);
 
-    private final CommandRunner commandRunner = new CommandRunner();
+    private final LensCommandRunner lensCommandRunner = new LensCommandRunner();
+
+    @FXML
+    private BorderPane frame;
 
     @FXML
     private TextField lens;
@@ -32,13 +41,16 @@ public class Controller implements Initializable {
     private Label dateTime;
 
     @FXML
+    private ToolBar processList;
+
+    @FXML
     private void setFocus(){
         terminal.requestFocus();
     }
 
     @FXML
     private void globalKeyPressed(KeyEvent event){
-        if(event.getCode() == KeyCode.ESCAPE) {
+        if(event.getCode() == KeyCode.ESCAPE){
             lens.requestFocus();
             lens.end();
         }
@@ -48,6 +60,7 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         initializeLens();
         initializeJediTerm();
+        initializeEventHandlers();
 
         DateTimeProvider.registerTo(dateTime);
     }
@@ -61,15 +74,15 @@ public class Controller implements Initializable {
                     terminal.requestFocus();
                     break;
                 case ENTER:
-                    commandRunner.run(lens.getText());
-                    lens.setText(commandRunner.shiftToFirst());
+                    lensCommandRunner.run(lens.getText());
+                    lens.setText(lensCommandRunner.shiftToFirst());
                     break;
                 case UP:
-                    lens.setText(commandRunner.shiftUp());
+                    lens.setText(lensCommandRunner.shiftUp());
                     lens.end();
                     break;
                 case DOWN:
-                    lens.setText(commandRunner.shiftDown());
+                    lens.setText(lensCommandRunner.shiftDown());
                     lens.end();
                     break;
                 case TAB:
@@ -92,6 +105,17 @@ public class Controller implements Initializable {
             lensTerminal.openSession();
 
             terminal.setContent(lensTerminal.getTerminalPanel());
+        });
+    }
+
+    private void initializeEventHandlers(){
+        LensEventManager.init(this.frame);
+
+        LensEventManager.listen(ProcessCreatedEvent.class, event -> {
+            ProcessCreatedEvent pce = (ProcessCreatedEvent)event;
+            Label description = new Label(pce.getDescription());
+            description.getStyleClass().add("process-label");
+            processList.getItems().add(description);
         });
     }
 

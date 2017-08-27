@@ -3,6 +3,7 @@ package com.konjex.lens.conf.yaml;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.konjex.lens.commands.Command;
 import com.konjex.lens.commands.exceptions.InvalidCommandNameException;
+import com.konjex.lens.commands.exceptions.InvalidCommandTypeException;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -27,7 +28,7 @@ public class YamlCommandDefinitions {
         try{
             return yamlCommand.parse();
         }
-        catch(InvalidCommandNameException e){
+        catch(InvalidCommandNameException | InvalidCommandTypeException e){
             throw new RuntimeException(e);
         }
     }

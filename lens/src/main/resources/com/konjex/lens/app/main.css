@@ -49,3 +49,15 @@
     -fx-pref-width: 100px;
     -fx-background-insets: 0;
 }
+
+.tool-bar{
+    -fx-background-color: rgb(14, 14, 14);
+    -fx-pref-height: 20px;
+    -fx-max-height: 20px;
+    -fx-padding: 0px 4px 0px 4px;
+}
+
+.process-label{
+    -fx-text-fill: #3090C7;
+    -fx-font-size: 12;
+}

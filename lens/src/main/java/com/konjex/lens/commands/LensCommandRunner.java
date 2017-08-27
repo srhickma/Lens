@@ -2,6 +2,7 @@ package com.konjex.lens.commands;
 
 
 import com.konjex.lens.commands.exceptions.CommandNotFoundException;
+import com.konjex.lens.commands.exceptions.FailedToRunCommandException;
 import com.konjex.lens.commands.exceptions.InvalidCommandNameException;
 import com.konjex.util.DoublyLinkedList;
 import com.konjex.util.LinkedListNode;
@@ -10,15 +11,15 @@ import org.apache.log4j.Logger;
 /**
  * Class for running lens commands.
  */
-public class CommandRunner {
+public class LensCommandRunner {
 
-    private static Logger log = Logger.getLogger(CommandRunner.class);
+    private static Logger log = Logger.getLogger(LensCommandRunner.class);
 
     private static final int MAX_HISTORY_SIZE = 64;
     private DoublyLinkedList<String> history = new DoublyLinkedList<>();
     private LinkedListNode<String> currentCommand;
 
-    public CommandRunner(){
+    public LensCommandRunner(){
         history.addFirst("");
         currentCommand = history.getFirst();
     }
@@ -36,7 +37,7 @@ public class CommandRunner {
                 history.removeLast();
             }
         }
-        catch(InvalidCommandNameException | CommandNotFoundException e){
+        catch(InvalidCommandNameException | CommandNotFoundException | FailedToRunCommandException e){
             log.error(e);
         }
     }

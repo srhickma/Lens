@@ -3,6 +3,7 @@ package com.konjex.lens.commands;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.konjex.lens.commands.exceptions.InvalidCommandNameException;
+import com.konjex.lens.commands.types.InternalCommand;
 import com.konjex.lens.conf.yaml.YamlCommandDefinitions;
 import org.apache.log4j.Logger;
 
@@ -45,7 +46,7 @@ public class CommandLoader {
     private static void loadDefaults(){
         log.info("Constructing default commands definitions");
         try{
-            CommandProvider.addCommand(new Command("EXIT"));
+            CommandProvider.addCommand(new InternalCommand("EXIT"));
         }
         catch(InvalidCommandNameException e){
             log.error(e);

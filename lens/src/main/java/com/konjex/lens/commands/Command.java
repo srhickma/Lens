@@ -1,26 +1,30 @@
 package com.konjex.lens.commands;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.konjex.lens.commands.exceptions.FailedToRunCommandException;
 import com.konjex.lens.commands.exceptions.InvalidCommandNameException;
+import com.konjex.lens.commands.types.CommandType;
 
 /**
  * Object representing an executable command.
  */
-public class Command {
+public abstract class Command {
 
-    @JsonProperty
     private final String name;
+    private final CommandType type;
 
-    public Command(String name) throws InvalidCommandNameException {
+    protected Command(String name, CommandType type) throws InvalidCommandNameException {
         this.name = CommandSanitizer.sanitize(name.toUpperCase());
+        this.type = type;
     }
 
-    void run(){
-        //execute the command
-    }
+    public abstract void run() throws FailedToRunCommandException;
 
     public String getName(){
         return name;
+    }
+
+    public CommandType getType(){
+        return type;
     }
 
     public boolean equals(Command command){

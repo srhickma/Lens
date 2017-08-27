@@ -29,7 +29,6 @@ public class LensApplication extends Application {
         CommandLoader.load();
     }
 
-
     public static void main(String[] args){
         BasicConfigurator.configure();
         launch(args);
