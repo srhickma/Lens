@@ -10,7 +10,6 @@ import java.io.InterruptedIOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-
 /**
  * Runs terminal emulator. Manages threads to send response.
  *

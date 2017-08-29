@@ -2,7 +2,6 @@ package com.jediterm.terminal.model;
 
 import com.jediterm.terminal.util.CharUtils;
 import com.jediterm.terminal.util.Pair;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -13,7 +12,6 @@ import java.util.List;
  * @author traff
  */
 public class SelectionUtil {
-  private static final Logger LOG = Logger.getLogger(SelectionUtil.class);
   
   private static final List<Character> SEPARATORS = new ArrayList<Character>();
   static {
@@ -32,10 +30,6 @@ public class SelectionUtil {
     SEPARATORS.add('<');
     SEPARATORS.add('>');
   }
-
-  public static List<Character> getDefaultSeparators() {
-    return new ArrayList<Character>(SEPARATORS);
-  }
   
   public static Pair<Point, Point> sortPoints(Point a, Point b) {
     if (a.y == b.y) { /* same line */
@@ -44,10 +38,6 @@ public class SelectionUtil {
     else {
       return Pair.create(a.y < b.y ? a : b, a.y > b.y ? a : b);
     }
-  }
-
-  public static String getSelectionText(TerminalSelection selection, TerminalTextBuffer terminalTextBuffer) {
-    return getSelectionText(selection.getStart(), selection.getEnd(), terminalTextBuffer);
   }
   
   public static String getSelectionText(final Point selectionStart,

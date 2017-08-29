@@ -1,6 +1,4 @@
-package com.konjex.lens.cores.terminal;
-
-import com.jediterm.terminal.model.Tabulator;
+package com.jediterm.terminal.model;
 
 import java.util.SortedSet;
 import java.util.TreeSet;

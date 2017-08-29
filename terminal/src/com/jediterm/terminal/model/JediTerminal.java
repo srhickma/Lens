@@ -7,7 +7,6 @@ import com.jediterm.terminal.emulator.charset.GraphicSetState;
 import com.jediterm.terminal.emulator.mouse.*;
 import com.jediterm.terminal.ui.TerminalCoordinates;
 import com.jediterm.terminal.util.CharUtils;
-import com.konjex.lens.cores.terminal.DefaultTabulator;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

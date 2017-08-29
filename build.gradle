@@ -7,9 +7,7 @@ allprojects {
 }
 
 subprojects {
-    repositories {
-        flatDir dirs: ['../lib', 'libs']
-    }
+    task alldeps(type: DependencyReportTask) {}
 }
 
 

@@ -46,7 +46,7 @@ public class CommandLoader {
     private static void loadDefaults(){
         log.info("Constructing default commands definitions");
         try{
-            CommandProvider.addCommand(new InternalCommand("EXIT"));
+            CommandProvider.addCommand(new InternalCommand("EXIT", () -> System.exit(0)));
         }
         catch(InvalidCommandNameException e){
             log.error(e);

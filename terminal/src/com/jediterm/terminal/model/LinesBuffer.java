@@ -37,29 +37,6 @@ public class LinesBuffer {
     myTextProcessing = textProcessing;
   }
 
-  public synchronized String getLines() {
-    final StringBuilder sb = new StringBuilder();
-
-    boolean first = true;
-
-    for (TerminalLine line : myLines) {
-      if (!first) {
-        sb.append("\n");
-      }
-
-      sb.append(line.getText());
-      first = false;
-    }
-
-    return sb.toString();
-  }
-
-
-  public synchronized void addNewLine(@NotNull TextStyle style, @NotNull CharBuffer characters) {
-    addNewLine(new TerminalLine.TextEntry(style, characters));
-  }
-
-
   private synchronized void addNewLine(@NotNull TerminalLine.TextEntry entry) {
     addLine(new TerminalLine(entry));
   }
@@ -82,12 +59,6 @@ public class LinesBuffer {
     } else {
       myLines = Lists.newArrayList(myLines.subList(count, myLines.size()));
     }
-  }
-
-  public String getLineText(int row) {
-    TerminalLine line = getLine(row);
-
-    return line.getText();
   }
 
   public synchronized void insertLines(int y, int count, int lastLine, @NotNull TextEntry filler) {
