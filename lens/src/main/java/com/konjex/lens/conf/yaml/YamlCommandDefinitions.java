@@ -1,9 +1,9 @@
 package com.konjex.lens.conf.yaml;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.konjex.lens.commands.Command;
-import com.konjex.lens.commands.exceptions.InvalidCommandNameException;
-import com.konjex.lens.commands.exceptions.InvalidCommandTypeException;
+import com.konjex.lens.app.commands.Command;
+import com.konjex.lens.app.commands.exceptions.InvalidCommandNameException;
+import com.konjex.lens.app.commands.exceptions.InvalidCommandTypeException;
 
 import java.util.List;
 import java.util.stream.Stream;

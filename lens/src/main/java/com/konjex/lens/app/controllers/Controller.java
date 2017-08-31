@@ -2,9 +2,9 @@ package com.konjex.lens.app.controllers;
 
 import com.konjex.lens.app.events.LensEventManager;
 import com.konjex.lens.app.events.ProcessCreatedEvent;
-import com.konjex.lens.commands.LensCommandRunner;
-import com.konjex.lens.cores.terminal.LensTerminal;
-import com.konjex.lens.ui.DateTimeProvider;
+import com.konjex.lens.app.commands.LensCommandRunner;
+import com.konjex.lens.app.cores.terminal.LensTerminal;
+import com.konjex.lens.app.ui.DateTimeProvider;
 import javafx.embed.swing.SwingNode;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

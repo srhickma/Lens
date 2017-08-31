@@ -1,6 +1,7 @@
 package com.konjex.lens.app;
 
-import com.konjex.lens.commands.CommandLoader;
+import com.konjex.lens.app.commands.CommandLoader;
+import com.konjex.lens.hook.HookConfigLoader;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +16,7 @@ public class LensApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
-        log.info("Launching lens application" + getClass().getPackage().toString());
+        log.info("Launching lens application");
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         Scene scene = new Scene(root);
 
@@ -27,10 +28,15 @@ public class LensApplication extends Application {
         log.info("Lens successfully launched");
 
         CommandLoader.load();
+        HookConfigLoader.load();
+    }
+
+    public static void start(String[] args){
+        launch(args);
     }
 
     public static void main(String[] args){
         BasicConfigurator.configure();
-        launch(args);
+        start(args);
     }
 }

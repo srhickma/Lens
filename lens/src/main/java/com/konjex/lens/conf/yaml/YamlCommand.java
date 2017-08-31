@@ -1,15 +1,15 @@
 package com.konjex.lens.conf.yaml;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.konjex.lens.commands.Command;
-import com.konjex.lens.commands.exceptions.InvalidCommandNameException;
-import com.konjex.lens.commands.exceptions.InvalidCommandTypeException;
-import com.konjex.lens.commands.types.CommandType;
-import com.konjex.lens.commands.types.RunCommand;
-import com.konjex.lens.commands.types.ShellCommand;
+import com.konjex.lens.app.commands.Command;
+import com.konjex.lens.app.commands.exceptions.InvalidCommandNameException;
+import com.konjex.lens.app.commands.exceptions.InvalidCommandTypeException;
+import com.konjex.lens.app.commands.types.CommandType;
+import com.konjex.lens.app.commands.types.RunCommand;
+import com.konjex.lens.app.commands.types.ShellCommand;
 
 /**
- * Yaml representation of a command.
+ * Yaml representation of a Command.
  */
 public class YamlCommand {
 
@@ -43,7 +43,7 @@ public class YamlCommand {
             commandType = CommandType.valueOf(type);
         }
         catch(IllegalArgumentException e){
-            throw new InvalidCommandTypeException();
+            throw new InvalidCommandTypeException(type);
         }
 
         switch(commandType){

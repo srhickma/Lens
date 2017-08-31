@@ -1,0 +1,3 @@
+hooks:
+  - code: 10
+    action: focus

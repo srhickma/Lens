@@ -24,7 +24,9 @@
                         <SwingNode fx:id="terminal" onMousePressed="#setFocus" />
                      </content>
                   </Tab>
-                <Tab text="SYS STAT" />
+                <Tab text="SAGE" />
+                  <Tab text="LOG" />
+                  <Tab text="SYS STAT" />
               </tabs>
             </TabPane>
          </center>
