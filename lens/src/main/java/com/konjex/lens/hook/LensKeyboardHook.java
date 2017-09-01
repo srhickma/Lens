@@ -1,6 +1,9 @@
 package com.konjex.lens.hook;
 
 import com.konjex.lens.app.LensApplication;
+import com.konjex.util.provide.ProvidableNotFoundException;
+import javafx.application.Platform;
+import javafx.stage.Stage;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -18,8 +21,29 @@ public class LensKeyboardHook implements NativeKeyListener {
 
     private static final Logger log = Logger.getLogger(LensKeyboardHook.class);
 
-    public void nativeKeyPressed(NativeKeyEvent event){
+    private static Stage focusableStage;
 
+    public static void init(Stage mainStage){
+        focusableStage = mainStage;
+    }
+
+    private void focusLens() {
+        Platform.runLater(() -> {
+            focusableStage.requestFocus();
+            focusableStage.show();
+        });
+    }
+
+    public void nativeKeyPressed(NativeKeyEvent event){
+        try{
+            switch(KeyHookProvider.get(event.getKeyCode()).getAction()){
+                case FOCUS:
+                    focusLens();
+            }
+        }
+        catch(ProvidableNotFoundException e){
+
+        }
     }
 
     public void nativeKeyReleased(NativeKeyEvent event){
@@ -42,13 +66,12 @@ public class LensKeyboardHook implements NativeKeyListener {
         }
         catch(NativeHookException e){
             log.error("There was a problem registering the native hook. Launching lens anyways.", e);
-            System.exit(1);
         }
 
         LensApplication.start(args);
     }
 
-    public static void silenceJNativeHook(){
+    private static void silenceJNativeHook(){
         LogManager.getLogManager().reset();
         Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
         logger.setLevel(Level.OFF);

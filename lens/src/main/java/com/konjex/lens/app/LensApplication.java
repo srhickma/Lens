@@ -2,7 +2,9 @@ package com.konjex.lens.app;
 
 import com.konjex.lens.app.commands.CommandLoader;
 import com.konjex.lens.hook.HookConfigLoader;
+import com.konjex.lens.hook.LensKeyboardHook;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,6 +18,7 @@ public class LensApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception{
+        LensKeyboardHook.init(stage);
         log.info("Launching lens application");
         Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
         Scene scene = new Scene(root);
