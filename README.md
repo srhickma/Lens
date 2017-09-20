@@ -39,7 +39,7 @@ A modified version of the jediterm core terminal library. A Swing terminal emula
 
 Authors
 -----
-Shane Hickman <srhickman@edu.uwaterloo.ca> Sofware Engineering student at the University of Waterloo.
+Shane Hickman <srhickman@edu.uwaterloo.ca> Software Engineering student at the University of Waterloo.
 
 
 Terminal
@@ -47,9 +47,9 @@ Terminal
 ![alt text](img/term.png "Lens Terminal Emulator")
 
 The terminal emulator used in Lens is a modified version of JediTerm (https://github.com/JetBrains/jediterm), a terminal emulator designed for use in JetBrains IDEs. The core terminal, written in Swing, was modified to meet the needs of Lens in the following ways:
-* Removed Swing tab and action implementation in favor of a separate JavaFX implementation.
-* Removed colour settings in favor of themes matching the rest of the application.
-* Removed Widget & Panel layout style in favour of a simpler LensTerminal object with no UI (for controlling the terminal) and the Terminal Panel encasing all necesary UI components for embedding the terminal in a JavaFX SwingNode.
+* Removed Swing tab and action implementation in favour of a separate JavaFX implementation.
+* Removed colour settings in favour of themes matching the rest of the application.
+* Removed Widget & Panel layout style in favour of a simpler LensTerminal object with no UI (for controlling the terminal) and the Terminal Panel encasing all necessary UI components for embedding the terminal in a JavaFX SwingNode.
 
 The initial version of the JediTerm was a reworked terminal emulator Gritty, which was in it's own turn a reworked JCTerm 
 terminal implementation. Now there is nothing in the source code left from Gritty and JCTerm. Everything was 
