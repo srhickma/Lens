@@ -39,7 +39,7 @@ A modified version of the jediterm core terminal library. A Swing terminal emula
 
 Authors
 -----
-Shane Hickman <srhickman@edu.uwaterloo.ca> Software Engineering student at the University of Waterloo.
+Shane Hickman <srhickma@edu.uwaterloo.ca> Sofware Engineering student at the University of Waterloo.
 
 
 Terminal
